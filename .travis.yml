@@ -1,0 +1,10 @@
+language: fortran
+
+os: linux
+
+install:
+    - sudo apt-get install gfortran
+
+script:
+    - gfortran -o greet.exe  greet.f
+    - ./greet.exe
