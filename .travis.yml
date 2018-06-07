@@ -6,5 +6,8 @@ install:
     - sudo apt-get install gfortran
 
 script:
-    - gfortran -o greet.exe  greet.f
+    - gfortran -fprofile-arcs -ftest-coverage -O0 -o greet.exe  greet.f
     - ./greet.exe
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash) -X coveragepy
